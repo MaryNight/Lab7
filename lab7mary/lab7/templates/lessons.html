@@ -1,0 +1,13 @@
+{% extends 'base.html' %}
+
+{% block title %}Уроки{% endblock %}
+
+{% block body %}
+    <ul class="list-group">
+        {% for lesson in lessons %}
+            <li class="list-group-item"><a href="{% url 'lesson_url' lesson.id %}">{{lesson.id}} &ndash; {{ lesson.name }}</a></li>
+        {% empty %}
+            <li class="list-group-item disabled">empty list</li>
+        {% endfor %}
+    </ul>
+{% endblock %}
